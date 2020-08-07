@@ -11,12 +11,6 @@ export default class AppMetricsPushMonitorService extends BaseMonitoringService 
 		this._monitor = null;
 	}
 
-	async init(injector) {
-		super.init(injector);
-
-		this._initialize();
-	}
-
 	_initialize() {
 		this._monitor = appmetrics.monitor({
 			mqtt: false
@@ -28,8 +22,13 @@ export default class AppMetricsPushMonitorService extends BaseMonitoringService 
 			}
 		});
 
+		const monitoring = this._config.get(`monitoring`);
+		const prefix = monitoring.prefix ? monitoring.prefix : null;
+
 		statsD.apply(this._client , {
-			prefix: '' // TODO: config
+			host: monitoring.host,
+			port: monitoring.port,
+			prefix: prefix
 		});
 
 		this._initializeMonitors();
