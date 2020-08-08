@@ -16,20 +16,20 @@ export default class AppMetricsPushMonitorService extends BaseMonitoringService 
 			mqtt: false
 		});
 
+		const monitoring = this._config.get(`monitoring`);
+		const prefix = monitoring.prefix ? monitoring.prefix : null;
+
 		this._client  = new statsD({
+			host: monitoring.host,
+			port: monitoring.port,
+			globalTags: { env: process.env.NODE_ENV, prefix: prefix },
 			errorHandler: function (error) {
 			  this._logger.error('Appmetrics - Socket errors caught', error);
 			}
 		});
 
-		const monitoring = this._config.get(`monitoring`);
-		const prefix = monitoring.prefix ? monitoring.prefix : null;
-
-		statsD.apply(this._client , {
-			host: monitoring.host,
-			port: monitoring.port,
-			prefix: prefix
-		});
+		// statsD.apply(this._client , {
+		// });
 
 		this._initializeMonitors();
 	}
