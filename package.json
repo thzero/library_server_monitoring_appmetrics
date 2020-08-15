@@ -23,7 +23,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@thzero/library_server": "^0.7.40",
+    "@thzero/library_server": "^0.7.43",
     "appmetrics": "^5.1.1",
     "hot-shots": "^7.7.1"
   },
