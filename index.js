@@ -24,7 +24,7 @@ export default class AppMetricsPushMonitorService extends BaseMonitoringService 
 			port: monitoring.port,
 			globalTags: { env: process.env.NODE_ENV, prefix: prefix },
 			errorHandler: function (error) {
-			  this._logger.error('Appmetrics - Socket errors caught', error);
+				this._logger.error('AppMetricsPushMonitorService', '_initialize', 'Socket errors caught', error);
 			}
 		});
 
