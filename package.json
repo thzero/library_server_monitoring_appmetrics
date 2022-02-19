@@ -28,11 +28,11 @@
     "hot-shots": "^8.5.2"
   },
   "devDependencies": {
-    "@thzero/library_cli": "^0.13.21"
+    "@thzero/library_cli": "^0.15"
   },
   "peerDependencies": {
-    "@thzero/library_common": "^0.14",
-    "@thzero/library_common_service": "^0.14",
-    "@thzero/library_server": "^0.14"
+    "@thzero/library_common": "^0.15",
+    "@thzero/library_common_service": "^0.15",
+    "@thzero/library_server": "^0.15"
   }
 }
